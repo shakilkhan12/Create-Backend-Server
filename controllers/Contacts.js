@@ -9,7 +9,7 @@ class Contacts {
       "https://api.msgsndr.com/contacts/",
       {
         name: req.body.alpha_1,
-        email: alpha_2,
+        email: req.body.alpha_2,
         locationId: LOCATION_ID,
       },
       {
