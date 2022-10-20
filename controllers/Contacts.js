@@ -22,7 +22,7 @@ class Contacts {
           },
         }
       );
-      res.json({ response });
+      return res.json({ response });
     } catch (error) {
       console.log(error.message);
     }
