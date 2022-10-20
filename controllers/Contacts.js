@@ -2,6 +2,7 @@ const axios = require("axios");
 const TOKEN = process.env.ACCESS_TOKEN;
 const VERSION = process.env.VERSION;
 const LOCATION_ID = process.env.LOCATION_ID;
+console.log(`${TOKEN}, ${VERSION}, ${LOCATION_ID}`);
 class Contacts {
   async createContact(req, res) {
     console.log(req.body);
