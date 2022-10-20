@@ -1,15 +1,13 @@
 const express = require("express");
+const contactRoutes = require("./routes/contactRoutes");
 require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(express.json());
-app.post("/create", (req, res) => {
-  console.log(req.body);
-  res.json({ data: req.body });
-});
-app.get("/test", (req, res) => {
-  res.json("Hello");
+app.use("/", contactRoutes);
+app.get("/", (req, res) => {
+  res.json("Welcome to FastFieldsForm");
 });
 app.listen(PORT, () => {
-  console.log("Server is running");
+  console.log(`Backend URL: http://localhost:${PORT}`);
 });
