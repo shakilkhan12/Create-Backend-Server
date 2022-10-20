@@ -21,7 +21,7 @@ class Contacts {
           },
         }
       );
-      res.json({ data: req.body, response });
+      res.json({ response });
     } catch (error) {
       console.log(error.message);
     }
