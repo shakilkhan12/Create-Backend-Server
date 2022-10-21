@@ -5,7 +5,8 @@ const LOCATION_ID = process.env.LOCATION_ID;
 console.log(`${TOKEN}, ${VERSION}, ${LOCATION_ID}`);
 class Contacts {
   async createContact(req, res) {
-    console.log(req.body);
+    console.log(req.body.formMetaData);
+    const { formMetaData } = req.body;
     // const {
     //   alpha_1,
     //   alpha_2,
@@ -17,8 +18,6 @@ class Contacts {
     //   alpha_8,
     // } = req.body;
 
-    const body = req.body;
-    body["locationId"] = LOCATION_ID;
     var options = {
       method: "POST",
       url: "https://api.msgsndr.com/contacts/",
@@ -27,7 +26,10 @@ class Contacts {
         Authorization: `Bearer ${TOKEN}`,
         Version: VERSION,
       },
-      data: body,
+      data: {
+        locationId: LOCATION_ID,
+        customFields: formMetaData,
+      },
     };
 
     axios
