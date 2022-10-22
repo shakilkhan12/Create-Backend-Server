@@ -13,33 +13,33 @@ class Contacts {
       Version: VERSION,
     };
     const { formMetaData } = req.body;
-    for (const i in formMetaData) {
-      let options = {
-        method: "POST",
-        url: `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
+    const custom = await axios.get(
+      `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
+      {
         headers,
-        data: {
-          name: i + uuidv4(),
-          dataType: "TEXT",
-        },
-      };
-      const customResponse = await axios.request(options);
+      }
+    );
+    // console.log(customResponse.data.customFields);
+    let num = 0;
+    for (let i in formMetaData) {
       customFields.push({
-        id: customResponse.id,
+        id: custom.data.customFields[num],
         field_value: formMetaData[i],
       });
+      num += num;
     }
     console.log("custom fields: ", customFields);
+    // console.log("custom fields: ", customFields);
     let contactOptions = {
       method: "POST",
       url: "https://api.msgsndr.com/contacts/",
       headers,
       data: {
         locationId: LOCATION_ID,
-        firstName: "Izhar1",
-        lastName: "Hussain1",
-        name: "Izhar1 Hussain",
-        email: "IzharHussain1@deos.com",
+        firstName: `Izhar1 ${uuidv4()}`,
+        lastName: `Hussain1 ${uuidv4()}`,
+        name: `Izhar1 Hussain ${uuidv4()}`,
+        email: `IzharHussain${uuidv4()}@deos.com`,
         customFields,
       },
     };
