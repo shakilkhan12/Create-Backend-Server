@@ -23,8 +23,12 @@ class Contacts {
         },
       };
       const customResponse = await axios.request(options);
-      customFields.push({ id: customResponse.id, fieldValue: formMetaData[i] });
+      customFields.push({
+        id: customResponse.id,
+        field_value: formMetaData[i],
+      });
     }
+    console.log("custom fields: ", customFields);
     let contactOptions = {
       method: "POST",
       url: "https://api.msgsndr.com/contacts/",
