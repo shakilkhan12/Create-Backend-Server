@@ -35,10 +35,10 @@ class Contacts {
       headers,
       data: {
         locationId: LOCATION_ID,
-        firstName: "Izhar",
-        lastName: "Hussain",
-        name: "Izhar Hussain",
-        email: "IzharHussain@deos.com",
+        firstName: "Izhar1",
+        lastName: "Hussain1",
+        name: "Izhar1 Hussain",
+        email: "IzharHussain1@deos.com",
         customFields,
       },
     };
