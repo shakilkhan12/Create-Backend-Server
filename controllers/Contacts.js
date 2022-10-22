@@ -23,7 +23,7 @@ class Contacts {
     let num = 0;
     for (let i in formMetaData) {
       customFields.push({
-        id: custom.data.customFields[num],
+        id: custom.data.customFields[num].id,
         field_value: formMetaData[i],
       });
       num += num;
