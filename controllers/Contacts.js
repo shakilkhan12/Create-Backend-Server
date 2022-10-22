@@ -12,7 +12,7 @@ class Contacts {
       Authorization: `Bearer ${TOKEN}`,
       Version: VERSION,
     };
-    const { formMetaData } = req.body;
+    // const { formMetaData } = req.body;
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
@@ -20,15 +20,20 @@ class Contacts {
       }
     );
     // console.log(customResponse.data.customFields);
-
-    for (let i in formMetaData) {
-      let num = 0;
+    let formMetaData = {
+      id: 1,
+      name: "sfsdf",
+      age: 45,
+      data: "sdfs",
+    };
+    const newArray = Object.values(formMetaData);
+    newArray.forEach((record, index) => {
       customFields.push({
-        id: custom.data.customFields[num].id,
-        field_value: formMetaData[i],
+        id: custom.data.customFields[index].id,
+        field_value: record,
       });
-      num += num;
-    }
+    });
+
     console.log("custom fields: ", customFields);
     // console.log("custom fields: ", customFields);
     let contactOptions = {
@@ -45,15 +50,15 @@ class Contacts {
       },
     };
 
-    axios
-      .request(contactOptions)
-      .then(function (response) {
-        console.log(response.data);
-        res.send(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    // axios
+    //   .request(contactOptions)
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //     res.send(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
   }
 }
 module.exports = new Contacts();
