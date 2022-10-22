@@ -11,17 +11,17 @@ class Contacts {
       Authorization: `Bearer ${TOKEN}`,
       Version: VERSION,
     };
-    let options = {
-      method: "POST",
-      url: `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
-      headers,
-      data: {
-        name: "custom name",
-        dataType: "TEXT",
-      },
-    };
     const { formMetaData } = req.body;
     for (const i in formMetaData) {
+      let options = {
+        method: "POST",
+        url: `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
+        headers,
+        data: {
+          name: i,
+          dataType: "TEXT",
+        },
+      };
       const customResponse = await axios.request(options);
       customFields.push({ id: customResponse.id, fieldValue: formMetaData[i] });
     }
