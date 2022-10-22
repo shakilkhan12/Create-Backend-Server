@@ -12,20 +12,13 @@ class Contacts {
       Authorization: `Bearer ${TOKEN}`,
       Version: VERSION,
     };
-    // const { formMetaData } = req.body;
+    const { formMetaData } = req.body;
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
         headers,
       }
     );
-    // console.log(customResponse.data.customFields);
-    let formMetaData = {
-      id: 1,
-      name: "sfsdf",
-      age: 45,
-      data: "sdfs",
-    };
     const newArray = Object.values(formMetaData);
     newArray.forEach((record, index) => {
       customFields.push({
@@ -50,15 +43,15 @@ class Contacts {
       },
     };
 
-    // axios
-    //   .request(contactOptions)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //     res.send(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
+    axios
+      .request(contactOptions)
+      .then(function (response) {
+        console.log(response.data);
+        res.send(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   }
 }
 module.exports = new Contacts();
