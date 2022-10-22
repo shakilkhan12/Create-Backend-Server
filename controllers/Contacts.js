@@ -20,8 +20,9 @@ class Contacts {
       }
     );
     // console.log(customResponse.data.customFields);
-    let num = 0;
+
     for (let i in formMetaData) {
+      let num = 0;
       customFields.push({
         id: custom.data.customFields[num].id,
         field_value: formMetaData[i],
