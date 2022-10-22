@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { v4: uuidv4 } = require("uuid");
 const TOKEN = process.env.ACCESS_TOKEN;
 const VERSION = process.env.VERSION;
 const LOCATION_ID = process.env.LOCATION_ID;
@@ -18,7 +19,7 @@ class Contacts {
         url: `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
         headers,
         data: {
-          name: i,
+          name: i + uuidv4(),
           dataType: "TEXT",
         },
       };
