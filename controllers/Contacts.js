@@ -44,15 +44,15 @@ class Contacts {
       },
     };
 
-    axios
-      .request(contactOptions)
-      .then(function (response) {
-        console.log(response.data);
-        res.send(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+    // axios
+    //   .request(contactOptions)
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //     res.send(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
   }
   async getContacts(req, res) {
     var options = {
