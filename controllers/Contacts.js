@@ -20,7 +20,7 @@ class Contacts {
         headers,
       }
     );
-    const newArray = Object.values(formMetaData);
+    const newArray = Object.values(req.body);
     newArray.forEach((record, index) => {
       customFields.push({
         id: custom.data.customFields[index].id,
@@ -39,7 +39,7 @@ class Contacts {
         firstName: `Izhar1 ${uuidv4()}`,
         lastName: `Hussain1 ${uuidv4()}`,
         name: `Izhar1 Hussain ${uuidv4()}`,
-        email: `IzharHussain${uuidv4()}@deos.com`,
+        email: `IzharHussain${uuidv4()}@contact.com`,
         customFields,
       },
     };
