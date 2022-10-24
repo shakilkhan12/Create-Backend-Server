@@ -14,24 +14,6 @@ class Contacts {
     };
     const { formMetaData } = req.body;
     console.log(req.body);
-    let emailOptions = {
-      method: "GET",
-      url: "https://api.msgsndr.com/contacts/search/duplicate",
-      params: {
-        locationId: LOCATION_ID,
-        email: req.body.alpha_15,
-      },
-      headers,
-    };
-
-    axios
-      .request(emailOptions)
-      .then(function (response) {
-        console.log("email response: ", response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
@@ -47,30 +29,46 @@ class Contacts {
     });
 
     console.log("custom fields: ", customFields);
-    // console.log("custom fields: ", customFields);
-    let contactOptions = {
-      method: "POST",
-      url: "https://api.msgsndr.com/contacts/",
-      headers,
-      data: {
+    let emailOptions = {
+      method: "GET",
+      url: "https://api.msgsndr.com/contacts/search/duplicate",
+      params: {
         locationId: LOCATION_ID,
-        firstName: `Izhar1 ${uuidv4()}`,
-        lastName: `Hussain1 ${uuidv4()}`,
-        name: `Izhar1 Hussain ${uuidv4()}`,
-        email: `IzharHussain${uuidv4()}@contact.com`,
-        customFields,
+        email: req.body.alpha_15,
       },
+      headers,
     };
 
-    // axios
-    //   .request(contactOptions)
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //     res.send(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
+    axios
+      .request(emailOptions)
+      .then(function (response) {
+        console.log("email response: ", response.data);
+        if (response.data.contact !== null) {
+          let contactOptions = {
+            method: "PUT",
+            url: `https://api.msgsndr.com/contacts/${response?.data?.contact?.id}`,
+            headers,
+            data: {
+              customFields,
+            },
+          };
+
+          axios
+            .request(contactOptions)
+            .then(function (response) {
+              console.log(response.data);
+              res.send(response.data);
+            })
+            .catch(function (error) {
+              console.error(error);
+            });
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+    // console.log("custom fields: ", customFields);
   }
   async getContacts(req, res) {
     var options = {
