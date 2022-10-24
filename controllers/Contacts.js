@@ -53,5 +53,28 @@ class Contacts {
         console.error(error);
       });
   }
+  async getContacts(req, res) {
+    var options = {
+      method: "GET",
+      url: "https://api.msgsndr.com/contacts/5VnJgTTlI9mCbtvIFOrV",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer 8bfdc3104e16fa234c6c92ff9c14df4c5af14538",
+        Version: "2021-04-15",
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        response.data.contact.customFields.forEach((d) => {
+          console.log(d);
+        });
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
 }
 module.exports = new Contacts();
