@@ -13,6 +13,7 @@ class Contacts {
       Version: VERSION,
     };
     const { formMetaData } = req.body;
+    console.log(req.body);
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
