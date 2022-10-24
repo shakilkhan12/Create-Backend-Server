@@ -12,7 +12,7 @@ class Contacts {
       Authorization: `Bearer ${TOKEN}`,
       Version: VERSION,
     };
-    const { formMetaData } = req.body;
+    // const { formMetaData } = req.body;
     console.log(req.body);
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
@@ -21,14 +21,16 @@ class Contacts {
       }
     );
     const newArray = Object.values(req.body);
+    console.log("custom result: ", custom?.data?.customFields[0]?.id);
     newArray.forEach((record, index) => {
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: record,
       });
     });
-
     console.log("custom fields: ", customFields);
+    // process.exit();
+
     let emailOptions = {
       method: "GET",
       url: "https://api.msgsndr.com/contacts/search/duplicate",
