@@ -14,6 +14,24 @@ class Contacts {
     };
     const { formMetaData } = req.body;
     console.log(req.body);
+    let emailOptions = {
+      method: "GET",
+      url: "https://api.msgsndr.com/contacts/search/duplicate",
+      params: {
+        locationId: LOCATION_ID,
+        email: req.body.alpha_15,
+      },
+      headers,
+    };
+
+    axios
+      .request(emailOptions)
+      .then(function (response) {
+        console.log("email response: ", response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
