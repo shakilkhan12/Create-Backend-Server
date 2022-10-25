@@ -21,11 +21,13 @@ class Contacts {
       }
     );
     const newArray = Object.values(req.body);
+    const objectKeys = Object.keys(req.body);
     console.log("custom result: ", custom?.data?.customFields[0]?.id);
     newArray.forEach((record, index) => {
+      const keyName = objectKeys[index];
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: record,
+        field_value: { keyName: record },
       });
     });
     console.log("custom fields: ", customFields);
