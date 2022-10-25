@@ -27,7 +27,7 @@ class Contacts {
       const keyName = objectKeys[index];
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: { keyName: record },
+        field_value: { [keyName]: record },
       });
     });
     console.log("custom fields: ", customFields);
