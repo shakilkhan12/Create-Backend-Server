@@ -20,6 +20,7 @@ class Contacts {
         headers,
       }
     );
+    console.log("req body: ", req.body);
     const {
       ["submissionId"]: submissionId,
       ["accountId"]: accountId,
@@ -46,8 +47,8 @@ class Contacts {
         field_value: record,
       });
     });
-    console.log("custom fields: ", customFields);
-    console.log("custom fields response: ", custom.data);
+    // console.log("custom fields: ", customFields);
+    // console.log("custom fields response: ", custom.data);
     // process.exit();
 
     let emailOptions = {
