@@ -44,6 +44,7 @@ class Contacts {
       let key = custom.data.customFields[index].fieldKey;
       // contact.property_year
       let split = key.split(".");
+      console.log(split[1]);
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: record,
@@ -67,7 +68,7 @@ class Contacts {
     axios
       .request(emailOptions)
       .then(function (response) {
-        console.log("email response: ", response.data);
+        // console.log("email response: ", response.data);
         if (response.data.contact !== null) {
           let contactOptions = {
             method: "PUT",
@@ -81,7 +82,7 @@ class Contacts {
           axios
             .request(contactOptions)
             .then(function (response) {
-              console.log(response.data);
+              // console.log(response.data);
               res.send(response.data);
             })
             .catch(function (error) {
