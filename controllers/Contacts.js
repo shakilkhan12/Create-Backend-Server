@@ -39,12 +39,11 @@ class Contacts {
       ...modifiedBody
     } = req.body;
     const newArray = Object.values(modifiedBody);
-    let key = custom.data.customFields[index].fieldKey;
-    // contact.property_year
-    let split = key.split(".");
 
     newArray.forEach((record, index) => {
-      // const keyName = objectKeys[index];
+      let key = custom.data.customFields[index].fieldKey;
+      // contact.property_year
+      let split = key.split(".");
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: req.body[split[1]],
