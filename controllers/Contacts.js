@@ -39,20 +39,13 @@ class Contacts {
       ...modifiedBody
     } = req.body;
     const newArray = Object.values(modifiedBody);
-    // const objectKeys = Object.keys(req.body);
+    let key = custom.data.customFields[index].fieldKey;
     newArray.forEach((record, index) => {
       // const keyName = objectKeys[index];
-      if (custom.data.customFields[index].fieldKey === "contact.roof_notes") {
-        customFields.push({
-          id: custom.data.customFields[index].id,
-          field_value: req.body.multiline_4,
-        });
-      } else {
-        customFields.push({
-          id: custom.data.customFields[index].id,
-          field_value: record,
-        });
-      }
+      customFields.push({
+        id: custom.data.customFields[index].id,
+        field_value: req.body[key],
+      });
     });
     // console.log("custom fields: ", customFields);
     // console.log("custom fields response: ", custom.data);
