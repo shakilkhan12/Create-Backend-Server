@@ -13,7 +13,7 @@ class Contacts {
       Version: VERSION,
     };
     // const { formMetaData } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const custom = await axios.get(
       `https://api.msgsndr.com/locations/${LOCATION_ID}/customFields`,
       {
@@ -39,7 +39,6 @@ class Contacts {
     } = req.body;
     const newArray = Object.values(modifiedBody);
     // const objectKeys = Object.keys(req.body);
-    console.log("custom result: ", custom?.data?.customFields[0]?.id);
     newArray.forEach((record, index) => {
       // const keyName = objectKeys[index];
       customFields.push({
@@ -48,6 +47,7 @@ class Contacts {
       });
     });
     console.log("custom fields: ", customFields);
+    console.log("custom fields response: ", custom.data);
     // process.exit();
 
     let emailOptions = {
