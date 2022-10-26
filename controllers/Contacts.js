@@ -40,11 +40,14 @@ class Contacts {
     } = req.body;
     const newArray = Object.values(modifiedBody);
     let key = custom.data.customFields[index].fieldKey;
+    // contact.property_year
+    let split = key.split(".");
+
     newArray.forEach((record, index) => {
       // const keyName = objectKeys[index];
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: req.body[key],
+        field_value: req.body[split[1]],
       });
     });
     // console.log("custom fields: ", customFields);
