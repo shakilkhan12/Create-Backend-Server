@@ -20,7 +20,24 @@ class Contacts {
         headers,
       }
     );
-    const newArray = Object.values(req.body);
+    const {
+      ["submissionId"]: submissionId,
+      ["accountId"]: accountId,
+      ["formId"]: formId,
+      ["formName"]: formName,
+      ["formVersion"]: formVersion,
+      ["displayReferenceValue"]: displayReferenceValue,
+      ["emailRecipientsOnSubmit"]: emailRecipientsOnSubmit,
+      ["resubmit"]: resubmit,
+      ["userId"]: userId,
+      ["userName"]: userName,
+      ["alerts"]: alerts,
+      ["updatedAt"]: updatedAt,
+      ["workflowData:"]: workflowData,
+      ["submitId"]: submitId,
+      ...modifiedBody
+    } = req.body;
+    const newArray = Object.values(modifiedBody);
     // const objectKeys = Object.keys(req.body);
     console.log("custom result: ", custom?.data?.customFields[0]?.id);
     newArray.forEach((record, index) => {
