@@ -20,7 +20,7 @@ class Contacts {
         headers,
       }
     );
-    console.log("req body: ", req.body);
+    // console.log("req body: ", req.body);
     const {
       ["submissionId"]: submissionId,
       ["accountId"]: accountId,
@@ -42,10 +42,17 @@ class Contacts {
     // const objectKeys = Object.keys(req.body);
     newArray.forEach((record, index) => {
       // const keyName = objectKeys[index];
-      customFields.push({
-        id: custom.data.customFields[index].id,
-        field_value: record,
-      });
+      if (custom.data.customFields[index].fieldKey === "contact.roof_notes") {
+        customFields.push({
+          id: custom.data.customFields[index].id,
+          field_value: req.body.multiline_4,
+        });
+      } else {
+        customFields.push({
+          id: custom.data.customFields[index].id,
+          field_value: record,
+        });
+      }
     });
     // console.log("custom fields: ", customFields);
     // console.log("custom fields response: ", custom.data);
