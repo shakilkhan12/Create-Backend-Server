@@ -46,7 +46,7 @@ class Contacts {
       let split = key.split(".");
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: req.body[split[1]],
+        field_value: record,
         // just up add the filed value vv
       });
     });
