@@ -48,7 +48,7 @@ class Contacts {
       console.log("Get value from body: ", req.body);
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: record,
+        field_value: req.body[split[1]],
         // just up add the filed value vv
       });
     });
