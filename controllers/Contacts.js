@@ -44,8 +44,8 @@ class Contacts {
       let key = custom.data.customFields[index].fieldKey;
       // contact.property_year
       let split = key.split(".");
-      // console.log(split[1]);
-      console.log("Get value from body: ", req.body[split[1]]);
+      console.log(split[1]);
+      console.log("Get value from body: ", req.body);
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: record,
