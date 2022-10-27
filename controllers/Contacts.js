@@ -44,7 +44,7 @@ class Contacts {
     custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
-      const { formMetaData } = req.body;
+      const { formMetaData, subform_1, subform_3 } = req.body;
       console.log(
         `ID => ${object.id}, key => ${split} value => ${
           req.body[split]
