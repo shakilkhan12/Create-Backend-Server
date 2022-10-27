@@ -42,22 +42,18 @@ class Contacts {
 
     // console.log("body: ", req.body);
     newArray.forEach((record, index) => {
-      let key = custom.data.customFields[index].fieldKey;
+      let object = custom.data.customFields[index];
       // contact.property_year
-      let split = key.split(".")[1];
+      let split = object.fieldKey.split(".")[1];
 
       const { formMetaData } = req.body;
 
       customFields.push({
-        id: custom.data.customFields[index].id,
+        id: object.id,
         field_value: req.body[split] ? req.body[split] : formMetaData[split],
       });
     });
     console.log(`Custom Fields: ${customFields}`);
-    // console.log("custom fields: ", customFields);
-    // console.log("custom fields response: ", custom.data);
-    // process.exit();
-
     let emailOptions = {
       method: "GET",
       url: "https://api.msgsndr.com/contacts/search/duplicate",
