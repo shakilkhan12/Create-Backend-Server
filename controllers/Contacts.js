@@ -41,7 +41,7 @@ class Contacts {
     const newArray = Object.values(modifiedBody);
 
     // console.log("body: ", req.body);
-    newArray.forEach((record, index) => {
+    custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
       const { formMetaData } = req.body;
