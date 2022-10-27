@@ -44,14 +44,12 @@ class Contacts {
     newArray.forEach((record, index) => {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
+      const { formMetaData } = req.body;
       console.log(
         `ID => ${object.id}, value => ${
           req.body[split] ? req.body[split] : formMetaData[split]
         }`
       );
-
-      const { formMetaData } = req.body;
-
       customFields.push({
         id: object.id,
         field_value: req.body[split] ? req.body[split] : formMetaData[split],
