@@ -43,12 +43,13 @@ class Contacts {
     newArray.forEach((record, index) => {
       let key = custom.data.customFields[index].fieldKey;
       // contact.property_year
-      let split = key.split(".");
-      console.log(split[1]);
-      console.log("Get value from body :=> ", req.body);
+      let split = key.split(".")[1];
+      console.log(split);
+      console.log(`key: ${split} => ${req.body[split]}`);
+      // console.log("Get value from body :=> ", req.body);
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: req.body[split[1]],
+        field_value: req.body[split],
         // just up add the filed value vv
       });
     });
