@@ -46,7 +46,7 @@ class Contacts {
       let split = object.fieldKey.split(".")[1];
       const { formMetaData } = req.body;
       console.log(
-        `ID => ${object.id}, value => ${
+        `ID => ${object.id}, key => ${split} value => ${
           req.body[split] ? req.body[split] : formMetaData[split]
         }`
       );
@@ -55,7 +55,7 @@ class Contacts {
         field_value: req.body[split] ? req.body[split] : formMetaData[split],
       });
     });
-    console.log(`Custom Fields: ${customFields}`);
+    // console.log(`Custom Fields: ${customFields}`);
     let emailOptions = {
       method: "GET",
       url: "https://api.msgsndr.com/contacts/search/duplicate",
