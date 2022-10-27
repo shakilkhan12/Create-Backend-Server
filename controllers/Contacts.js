@@ -47,16 +47,13 @@ class Contacts {
       let split = key.split(".")[1];
 
       const { formMetaData } = req.body;
-      console.log(
-        ` ID: ${custom.data.customFields[index].id}, Key: ${key} => ${
-          req.body[split] ? req.body[split] : formMetaData[split]
-        }`
-      );
+
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: req.body[split] ? req.body[split] : formMetaData[split],
       });
     });
+    console.log(`Custom Fields: ${customFields}`);
     // console.log("custom fields: ", customFields);
     // console.log("custom fields response: ", custom.data);
     // process.exit();
