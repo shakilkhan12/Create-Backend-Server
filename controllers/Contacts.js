@@ -46,11 +46,17 @@ class Contacts {
       // contact.property_year
       let split = key.split(".")[1];
 
+      const { formMetaData } = req.body;
+      console.log(
+        `Key: ${key} => ${
+          req.body[split] ? req.body[split] : formMetaData[split]
+        }`
+      );
       // console.log(`key: ${split} => ${req.body[split]}`);
       // console.log("Get value from body :=> ", req.body);
       customFields.push({
         id: custom.data.customFields[index].id,
-        field_value: req.body[split],
+        field_value: req.body[split] ? req.body[split] : formMetaData[split],
         // just up add the filed value vv
       });
     });
