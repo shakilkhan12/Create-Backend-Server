@@ -40,7 +40,7 @@ class Contacts {
     } = req.body;
     const newArray = Object.values(modifiedBody);
 
-    console.log("body: ", req.body);
+    // console.log("body: ", req.body);
     newArray.forEach((record, index) => {
       let key = custom.data.customFields[index].fieldKey;
       // contact.property_year
@@ -48,16 +48,13 @@ class Contacts {
 
       const { formMetaData } = req.body;
       console.log(
-        `Key: ${key} => ${
+        ` ID: ${custom.data.customFields[index].id}, Key: ${key} => ${
           req.body[split] ? req.body[split] : formMetaData[split]
         }`
       );
-      // console.log(`key: ${split} => ${req.body[split]}`);
-      // console.log("Get value from body :=> ", req.body);
       customFields.push({
         id: custom.data.customFields[index].id,
         field_value: req.body[split] ? req.body[split] : formMetaData[split],
-        // just up add the filed value vv
       });
     });
     // console.log("custom fields: ", customFields);
