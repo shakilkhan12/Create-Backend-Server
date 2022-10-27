@@ -39,7 +39,7 @@ class Contacts {
       ...modifiedBody
     } = req.body;
     const newArray = Object.values(modifiedBody);
-
+    console.log(req.body);
     // console.log("body: ", req.body);
     custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
