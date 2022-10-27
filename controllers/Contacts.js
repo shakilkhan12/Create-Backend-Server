@@ -47,11 +47,7 @@ class Contacts {
       const { formMetaData, subform_1, subform_3 } = req.body;
       console.log(
         `ID => ${object.id}, key => ${split} value => ${
-          req.body[split]
-            ? req.body[split]
-            : formMetaData[split]
-            ? subform_1[split]
-            : subform_3[split]
+          req.body[split] ? req.body[split] : formMetaData[split]
         }`
       );
       customFields.push({
