@@ -40,7 +40,7 @@ class Contacts {
     } = req.body;
     const newArray = Object.values(modifiedBody);
 
-    console.log(`Request Body: ${req.body}`);
+    console.log(req.body);
     newArray.forEach((record, index) => {
       let key = custom.data.customFields[index].fieldKey;
       // contact.property_year
