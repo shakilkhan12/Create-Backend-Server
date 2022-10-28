@@ -54,6 +54,9 @@ class Contacts {
             : subform_3[0][split]
         }`
       );
+      if (subform_1[0][split]) {
+        console.log("subForm1 value: ", subform_1[0][split]);
+      }
       customFields.push({
         id: object.id,
         field_value: req.body[split]
