@@ -47,12 +47,20 @@ class Contacts {
       const { formMetaData, subform_1, subform_3 } = req.body;
       console.log(
         `ID => ${object.id}, key => ${split} value => ${
-          req.body[split] ? req.body[split] : formMetaData[split]
+          req.body[split]
+            ? req.body[split]
+            : formMetaData[split]
+            ? subform_1[0][split]
+            : subform_3[0][split]
         }`
       );
       customFields.push({
         id: object.id,
-        field_value: req.body[split] ? req.body[split] : formMetaData[split],
+        field_value: req.body[split]
+          ? req.body[split]
+          : formMetaData[split]
+          ? subform_1[0][split]
+          : subform_3[0][split],
       });
     });
     // console.log(`Custom Fields: ${customFields}`);
