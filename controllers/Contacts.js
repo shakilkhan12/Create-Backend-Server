@@ -54,16 +54,21 @@ class Contacts {
             : subform_3[0][split]
         }`
       );
-      if (subform_1[0][split]) {
-        console.log("subForm1 value: ", subform_1[0][split]);
+      let fieldValue = "";
+      if (req.body[split]) {
+        fieldValue = req.body[split];
+      } else if (formMetaData[split]) {
+        fieldValue = formMetaData[split];
+      } else if (subform_1[0][split]) {
+        fieldValue = subform_1[0][split];
+      } else if (subform_3[0][split]) {
+        fieldValue = subform_3[0][split];
+      } else {
+        fieldValue = "";
       }
       customFields.push({
         id: object.id,
-        field_value: req.body[split]
-          ? req.body[split]
-          : formMetaData[split]
-          ? subform_1[0][split]
-          : subform_3[0][split],
+        field_value: fieldValue,
       });
     });
     // console.log(`Custom Fields: ${customFields}`);
