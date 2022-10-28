@@ -44,7 +44,7 @@ class Contacts {
     custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
-      const { formMetaData, subform_1, subform_3 } = req.body;
+      const { formMetaData, subform_1, subform_2, subform_3 } = req.body;
       console.log(
         `ID => ${object.id}, key => ${split} value => ${
           req.body[split]
@@ -63,6 +63,8 @@ class Contacts {
         fieldValue = subform_1[0][split];
       } else if (subform_3[0][split]) {
         fieldValue = subform_3[0][split];
+      } else if (subform_1[0][split]) {
+        fieldValue = subform_1[0][split];
       } else {
         fieldValue = "";
       }
