@@ -59,11 +59,11 @@ class Contacts {
         fieldValue = req.body[split];
       } else if (formMetaData[split]) {
         fieldValue = formMetaData[split];
-      } else if (subform_1[0][split]) {
+      } else if (subform_1 && subform_1[0][split]) {
         fieldValue = subform_1[0][split];
-      } else if (subform_3[0][split]) {
+      } else if (subform_3 && subform_3[0][split]) {
         fieldValue = subform_3[0][split];
-      } else if (subform_2[0][split]) {
+      } else if (subform_2 && subform_2[0][split]) {
         fieldValue = subform_2[0][split];
       } else {
         fieldValue = "";
