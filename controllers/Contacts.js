@@ -62,12 +62,12 @@ class Contacts {
       } else {
         fieldValue = "";
       }
-      if (isNumber(fieldValue) && isNumber(fieldValue) === 1) {
-        fieldValue = "Yes";
-        console.log(` field => ${split}, value => ${filedValue}`);
-      } else if (isNumber(fieldValue) && isNumber(fieldValue) === 0) {
-        fieldValue = "No";
-        console.log(` field => ${split}, value ==> ${filedValue}`);
+      if (isNumber(fieldValue)) {
+        if (parseInt(fieldValue) === 1) {
+          fieldValue = "Yes";
+        } else if (parseInt(fieldValue) === 0) {
+          fieldValue = "No";
+        }
       }
       // console.log(isNumber(fieldValue));
       // console.log(`value => ${split} type ${typeof fieldValue}`);
@@ -77,7 +77,7 @@ class Contacts {
       });
     });
     customFields.forEach((c) => {
-      // console.log(`key ${c.id}, value => ${c.field_value}`);
+      console.log(`key ${c.id}, value => ${c.field_value}`);
     });
     let emailOptions = {
       method: "GET",
