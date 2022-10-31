@@ -45,15 +45,6 @@ class Contacts {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
       const { formMetaData, subform_1, subform_2, subform_3 } = req.body;
-      // console.log(
-      //   `ID => ${object.id}, key => ${split} value => ${
-      //     req.body[split]
-      //       ? req.body[split]
-      //       : formMetaData[split]
-      //       ? subform_1[0][split]
-      //       : subform_3[0][split]
-      //   }`
-      // );
       let fieldValue = "";
       if (req.body[split]) {
         fieldValue = req.body[split];
@@ -73,6 +64,7 @@ class Contacts {
       } else if (fieldValue === 0) {
         fieldValue = "No";
       }
+      console.log(`value => ${fieldValue} type ${typeof fieldValue}`);
       customFields.push({
         id: object.id,
         field_value: fieldValue,
