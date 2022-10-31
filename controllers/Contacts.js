@@ -59,9 +59,9 @@ class Contacts {
       } else {
         fieldValue = "";
       }
-      if (fieldValue == 1) {
+      if (Number(fieldValue) === 1) {
         fieldValue = "Yes";
-      } else if (fieldValue == 0) {
+      } else if (Number(fieldValue) === 0) {
         fieldValue = "No";
       }
       console.log(`value => ${split} type ${typeof fieldValue}`);
