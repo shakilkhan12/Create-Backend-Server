@@ -64,7 +64,7 @@ class Contacts {
       } else if (fieldValue === 0) {
         fieldValue = "No";
       }
-      console.log(`value => ${fieldValue} type ${typeof fieldValue}`);
+      console.log(`value => ${split} type ${typeof fieldValue}`);
       customFields.push({
         id: object.id,
         field_value: fieldValue,
