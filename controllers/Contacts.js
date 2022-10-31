@@ -71,7 +71,7 @@ class Contacts {
       customFields.push({
         id: object.id,
         field_value:
-          fieldValue === 1 ? true : fieldValue === 0 ? false : fieldValue,
+          fieldValue === 1 ? "Yes" : fieldValue === 0 ? "No" : fieldValue,
       });
     });
     customFields.forEach((c) => {
