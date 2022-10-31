@@ -41,6 +41,9 @@ class Contacts {
     const newArray = Object.values(modifiedBody);
     console.log(req.body);
     // console.log("body: ", req.body);
+    function isNumber(n) {
+      return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
+    }
     custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
       let split = object.fieldKey.split(".")[1];
@@ -59,9 +62,9 @@ class Contacts {
       } else {
         fieldValue = "";
       }
-      if (Number(fieldValue) === 1) {
+      if (isNumber(fieldValue) && isNumber(fieldValue) === 1) {
         fieldValue = "Yes";
-      } else if (Number(fieldValue) === 0) {
+      } else if (isNumber(fieldValue) && isNumber(fieldValue) === 0) {
         fieldValue = "No";
       }
       console.log(`value => ${split} type ${typeof fieldValue}`);
