@@ -70,8 +70,7 @@ class Contacts {
       }
       customFields.push({
         id: object.id,
-        field_value:
-          fieldValue == 1 ? true : fieldValue == false ? false : fieldValue,
+        field_value: fieldValue,
       });
     });
     // console.log(`Custom Fields: ${customFields}`);
