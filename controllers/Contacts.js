@@ -67,7 +67,8 @@ class Contacts {
       } else if (isNumber(fieldValue) && isNumber(fieldValue) === 0) {
         fieldValue = "No";
       }
-      console.log(`value => ${split} type ${typeof fieldValue}`);
+      console.log(isNumber(fieldValue));
+      // console.log(`value => ${split} type ${typeof fieldValue}`);
       customFields.push({
         id: object.id,
         field_value: fieldValue,
