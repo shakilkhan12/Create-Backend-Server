@@ -67,6 +67,7 @@ class Contacts {
           fieldValue = "Yes";
         } else if (parseInt(fieldValue) === 0) {
           fieldValue = "No";
+          // let add comment
         }
       }
       // console.log(isNumber(fieldValue));
