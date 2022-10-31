@@ -67,7 +67,7 @@ class Contacts {
         console.log(` field => ${split}, value => ${filedValue}`);
       } else if (isNumber(fieldValue) && isNumber(fieldValue) === 0) {
         fieldValue = "No";
-        console.log(` field => ${split}, value => ${filedValue}`);
+        console.log(` field => ${split}, value ==> ${filedValue}`);
       }
       console.log(isNumber(fieldValue));
       // console.log(`value => ${split} type ${typeof fieldValue}`);
