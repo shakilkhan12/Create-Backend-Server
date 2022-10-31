@@ -74,7 +74,9 @@ class Contacts {
           fieldValue === 1 ? true : fieldValue === 0 ? false : fieldValue,
       });
     });
-    console.log(`Custom Fields: ${customFields}`);
+    customFields.forEach((c) => {
+      console.log(`key ${c.id}, value => ${c.field_value}`);
+    });
     let emailOptions = {
       method: "GET",
       url: "https://api.msgsndr.com/contacts/search/duplicate",
