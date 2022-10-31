@@ -68,10 +68,14 @@ class Contacts {
       } else {
         fieldValue = "";
       }
+      if (fieldValue == 1) {
+        fieldValue = "Yes";
+      } else if (fieldValue == 0) {
+        fieldValue = "No";
+      }
       customFields.push({
         id: object.id,
-        field_value:
-          fieldValue === 1 ? "Yes" : fieldValue === 0 ? "No" : fieldValue,
+        field_value: fieldValue,
       });
     });
     customFields.forEach((c) => {
