@@ -39,7 +39,7 @@ class Contacts {
       ...modifiedBody
     } = req.body;
     const newArray = Object.values(modifiedBody);
-    console.log(req.body);
+    // console.log(req.body);
     // console.log("body: ", req.body);
     custom.data.customFields.forEach((record, index) => {
       let object = custom.data.customFields[index];
@@ -74,7 +74,7 @@ class Contacts {
           fieldValue === 1 ? true : fieldValue === 0 ? false : fieldValue,
       });
     });
-    // console.log(`Custom Fields: ${customFields}`);
+    console.log(`Custom Fields: ${customFields}`);
     let emailOptions = {
       method: "GET",
       url: "https://api.msgsndr.com/contacts/search/duplicate",
