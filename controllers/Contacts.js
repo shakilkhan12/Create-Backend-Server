@@ -49,6 +49,7 @@ class Contacts {
       let split = object.fieldKey.split(".")[1];
       const { formMetaData, subform_1, subform_2, subform_3 } = req.body;
       let fieldValue = "";
+      console.log(`${split}, ${typeof req.body[split]}, ${req.body[split]}`);
       if (req.body[split]) {
         fieldValue = req.body[split];
         console.log("req body: ", req.body[split]);
@@ -63,6 +64,7 @@ class Contacts {
       } else {
         fieldValue = "";
       }
+
       // if (isNumber(fieldValue)) {
       //   console.log(`key => ${split}, ${fieldValue}`);
       //   if (parseInt(fieldValue) === 1) {
