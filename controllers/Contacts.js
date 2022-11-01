@@ -63,6 +63,7 @@ class Contacts {
         fieldValue = "";
       }
       if (isNumber(fieldValue)) {
+        console.log(`key => ${split}, ${fieldValue}`);
         if (parseInt(fieldValue) === 1) {
           fieldValue = "Yes";
         } else if (parseInt(fieldValue) === 0) {
