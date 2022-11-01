@@ -65,7 +65,7 @@ class Contacts {
       if (isNumber(fieldValue)) {
         console.log(`key => ${split}, ${fieldValue}`);
         if (parseInt(fieldValue) === 1) {
-          // comment
+          // comment updated
           fieldValue = "Yes";
         } else if (parseInt(fieldValue) === 0) {
           fieldValue = "No";
