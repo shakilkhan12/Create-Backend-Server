@@ -62,16 +62,16 @@ class Contacts {
       } else {
         fieldValue = "";
       }
-      if (isNumber(fieldValue)) {
-        console.log(`key => ${split}, ${fieldValue}`);
-        if (parseInt(fieldValue) === 1) {
-          // comment updated
-          fieldValue = "Yes";
-        } else if (parseInt(fieldValue) === 0) {
-          fieldValue = "No";
-          // let add comment
-        }
-      }
+      // if (isNumber(fieldValue)) {
+      //   console.log(`key => ${split}, ${fieldValue}`);
+      //   if (parseInt(fieldValue) === 1) {
+      //     // comment updated
+      //     fieldValue = "Yes";
+      //   } else if (parseInt(fieldValue) === 0) {
+      //     fieldValue = "No";
+      //     // let add comment
+      //   }
+      // }
       // console.log(isNumber(fieldValue));
       // console.log(`value => ${split} type ${typeof fieldValue}`);
       customFields.push({
