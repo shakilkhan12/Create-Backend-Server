@@ -39,7 +39,7 @@ class Contacts {
       ...modifiedBody
     } = req.body;
     const newArray = Object.values(modifiedBody);
-    console.log(req.body);
+    // console.log(req.body);
     // console.log("body: ", req.body);
     function isNumber(n) {
       return /^-?[\d.]+(?:e-?\d+)?$/.test(n);
@@ -51,6 +51,7 @@ class Contacts {
       let fieldValue = "";
       if (req.body[split]) {
         fieldValue = req.body[split];
+        console.log("req body: ", req.body[split]);
       } else if (formMetaData[split]) {
         fieldValue = formMetaData[split];
       } else if (subform_1 && subform_1[0][split]) {
