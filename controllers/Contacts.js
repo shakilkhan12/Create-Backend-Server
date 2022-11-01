@@ -20,7 +20,7 @@ class Contacts {
         headers,
       }
     );
-    // console.log("req body: ", req.body);
+    console.log("req body: ", req.body);
     const {
       ["submissionId"]: submissionId,
       ["accountId"]: accountId,
