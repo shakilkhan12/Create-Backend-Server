@@ -70,6 +70,7 @@ class Contacts {
       }
       if (split.includes("radioo")) {
         fieldValue = fieldValue.toString();
+        // comment
       }
       customFields.push({
         id: object.id,
