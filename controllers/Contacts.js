@@ -79,7 +79,7 @@ class Contacts {
       // console.log(isNumber(fieldValue));
       // console.log(`value => ${split} type ${typeof fieldValue}`);
       if (fieldValue === 1) {
-        fieldValue = "Yes";
+        fieldValue = "Yes"; //
       }
       customFields.push({
         id: object.id,
