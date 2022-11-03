@@ -85,7 +85,7 @@ class Contacts {
       url: "https://api.msgsndr.com/contacts/search/duplicate",
       params: {
         locationId: LOCATION_ID,
-        email: req.body.alpha_15,
+        email: req.body.customer_email,
       },
       headers,
     };
