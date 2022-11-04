@@ -108,7 +108,7 @@ class Contacts {
             .request(contactOptions)
             .then(function (response) {
               // console.log(response.data);
-              res.send("update response", response.data);
+              res.send(response.data);
             })
             .catch(function (error) {
               console.error(error);
