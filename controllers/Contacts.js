@@ -93,7 +93,7 @@ class Contacts {
     axios
       .request(emailOptions)
       .then(function (response) {
-        // console.log("email response: ", response.data);
+        console.log("email found: ", response.data);
         if (response.data.contact !== null) {
           let contactOptions = {
             method: "PUT",
@@ -108,7 +108,7 @@ class Contacts {
             .request(contactOptions)
             .then(function (response) {
               // console.log(response.data);
-              res.send(response.data);
+              res.send("update response", response.data);
             })
             .catch(function (error) {
               console.error(error);
