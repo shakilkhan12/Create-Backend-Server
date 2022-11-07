@@ -3,7 +3,9 @@ const { v4: uuidv4 } = require("uuid");
 const TOKEN = process.env.ACCESS_TOKEN;
 const VERSION = process.env.VERSION;
 const LOCATION_ID = process.env.LOCATION_ID;
-// console.log(`${TOKEN}, ${VERSION}, ${LOCATION_ID}`);
+const SESSION_TOKEN = process.env.SESSION_TOKEN;
+const FASTFIELD_API_KEY = process.env.FASTFIELD_API_KEY;
+const FASTFIELD_API_URL = process.env.FASTFIELD_API_URL;
 class Contacts {
   async createContact(req, res) {
     const customFields = [];
@@ -38,6 +40,7 @@ class Contacts {
       ["submitId"]: submitId,
       ...modifiedBody
     } = req.body;
+
     const newArray = Object.values(modifiedBody);
     // console.log(req.body);
     // console.log("body: ", req.body);
@@ -108,7 +111,40 @@ class Contacts {
             .request(contactOptions)
             .then(function (response) {
               // console.log(response.data);
-              res.send(response.data);
+              // res.send(response.data);
+              const headers = {
+                "Content-Type": "application/json",
+                "X-Gatekeeper-SessionToken": `Basic ${SESSION_TOKEN}`,
+                "FastField-API-Key": FASTFIELD_API_KEY,
+              };
+              axios
+                .request({
+                  method: "POST",
+                  url: FASTFIELD_API_URL,
+                  headers,
+                  data: {
+                    submissionId: req.body.submissionId,
+                    accountId: req.body.accountId,
+                    formId: req.body.formId,
+                    formName: req.body.formName,
+                    formVersion: req.body.formVersion,
+                    displayReferenceValue: req.body.displayReferenceValue,
+                    emailRecipientsOnSubmit: req.body.emailRecipientsOnSubmit,
+                    resubmit: req.body.resubmit,
+                    userId: req.body.userId,
+                    userName: req.body.userName,
+                    alerts: req.body.alerts,
+                    updatedAt: req.body.updatedAt,
+                    workflowData: req.body.workflowData,
+                    submitId: req.body.submitId,
+                  },
+                })
+                .then((response) => {
+                  console.log("pdf report: ", response);
+                })
+                .catch((err) => {
+                  console.log("pdf report error: ", err);
+                });
             })
             .catch(function (error) {
               console.error(error);
