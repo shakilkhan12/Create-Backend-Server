@@ -140,7 +140,7 @@ class Contacts {
                   },
                 })
                 .then((response) => {
-                  console.log("pdf report: ", response);
+                  console.log("pdf reportt: ", response);
                 })
                 .catch((err) => {
                   console.log("pdf report error: ", err);
