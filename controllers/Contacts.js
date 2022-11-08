@@ -114,7 +114,7 @@ class Contacts {
               // res.send(response.data);
               const headers = {
                 "Content-Type": "application/json",
-                "X-Gatekeeper-SessionToken": `Basic ${SESSION_TOKEN}`,
+                "X-Gatekeeper-SessionToken": `${SESSION_TOKEN}`,
                 "FastField-API-Key": FASTFIELD_API_KEY,
               };
               axios
